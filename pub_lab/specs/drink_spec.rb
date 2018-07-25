@@ -6,7 +6,7 @@ class TestDrink < MiniTest::Test
 
   def setup
 
-  @drink = Drink.new("Irn Bru", 0.9)
+  @drink = Drink.new("Irn Bru", 0.9, 1.0)
 
   end
 
@@ -16,6 +16,10 @@ class TestDrink < MiniTest::Test
 
   def test_has_price()
     assert_equal(0.9, @drink.price())
+  end
+
+  def test_has_alcohol_level()
+    assert_equal(1.0, @drink.alcohol_level())
   end
 
 end
