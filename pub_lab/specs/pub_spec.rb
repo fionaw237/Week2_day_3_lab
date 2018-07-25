@@ -11,9 +11,15 @@ class TestPub < MiniTest::Test
     @drink2 = Drink.new("Coke", 1.2, 1.3)
     @drink3 = Drink.new("Rubicon Mango", 1.2, 5.0)
     @drinks = [@drink1, @drink2, @drink3]
+
+    @stock = {@drink1 => 5,
+    @drink2 => 10,
+    @drink3 => 15
+  }
+
     @customer = Customer.new("Fiona", 10.0, 32)
     @customer2 = Customer.new("Rameez", 10.0, 17)
-    @pub = Pub.new("Weatherspoons", 50.0, @drinks)
+    @pub = Pub.new("Weatherspoons", 50.0, @drinks, @stock)
   end
 
   def test_has_name()
@@ -26,6 +32,10 @@ class TestPub < MiniTest::Test
 
   def test_has_drinks()
     assert_equal(3, @pub.drinks_count())
+  end
+
+  def test_has_stock()
+    assert_equal(5, @pub.stock_count(@drink1))
   end
 
   def test_sell_drink()
@@ -55,7 +65,16 @@ class TestPub < MiniTest::Test
     assert_equal(true, @pub.check_drunkenness(@customer))
   end
 
+  def test_decrease_stock
+    @pub.decrease_stock(@drink1)
+    assert_equal(4, @pub.stock_count(@drink1))
+  end
 
+  def test_value_of_stock
+
+    assert_equal(34.5, @pub.value_of_stock(@stock))
+
+  end
 
 
 

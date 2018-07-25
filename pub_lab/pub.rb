@@ -3,11 +3,12 @@ class Pub
   attr_reader :name
   attr_accessor :till
 
-  def initialize (name, till, drinks)
+  def initialize (name, till, drinks, stock)
 
     @name = name
     @till = till
     @drinks = drinks
+    @stock = stock
   end
 
   def drinks_count
@@ -23,10 +24,13 @@ class Pub
       @drinks.delete(drink)
       add_to_till(drink)
       customer.remove_money_from_wallet(drink)
-      customer.increase_drunknenness(drink)
+      customer.increase_drunkenness(drink)
+
     end
 
   end
+
+
 
   def add_to_till(drink)
     @till += drink.price
@@ -49,5 +53,25 @@ class Pub
 
 
   end
+
+  def stock_count(drink)
+   return @stock[drink]
+  end
+
+  def decrease_stock(drink)
+    @stock[drink] -= 1
+  end
+
+  def value_of_stock(stock)
+    total = 0
+    stock.each do |drink, stock|
+    total += stock * drink.price
+    end
+    return total
+  end
+
+
+
+
 
 end
