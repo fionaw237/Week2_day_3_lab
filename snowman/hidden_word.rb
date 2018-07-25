@@ -6,4 +6,8 @@ class HiddenWord
     @word = word
   end
 
+  def letter_in_word(letter)
+    return @word.include?(letter)
+  end
+
 end
