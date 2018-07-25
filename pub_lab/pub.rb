@@ -25,12 +25,9 @@ class Pub
       add_to_till(drink)
       customer.remove_money_from_wallet(drink)
       customer.increase_drunkenness(drink)
-
     end
 
   end
-
-
 
   def add_to_till(drink)
     @till += drink.price
