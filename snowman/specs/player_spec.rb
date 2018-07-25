@@ -6,12 +6,12 @@ class PlayerTest < MiniTest::Test
 
   def setup()
 
-    @player = Player.new("Fiona")
+    @player = Player.new("Merlin")
 
   end
 
   def test_has_name()
-    assert_equal("Fiona", @player.name())
+    assert_equal("Merlin", @player.name())
   end
 
   def test_starts_with_six_lives()
