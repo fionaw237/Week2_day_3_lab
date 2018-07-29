@@ -56,6 +56,4 @@ class Game
     #return @is_won
   end
 
-#print_hidden_word function
-
 end

@@ -41,8 +41,8 @@ class GameTest < MiniTest::Test
     letters_to_guess.each do |letter|
       @game.guess_letter(@word, letter)
     end
-    result = @game.is_lost?()
-    assert_equal(true, result)
+    @game.is_lost?()
+    assert_equal(true, @game.is_lost())
   end
 
   def test_game_lost__false()
@@ -50,8 +50,8 @@ class GameTest < MiniTest::Test
     letters_to_guess.each do |letter|
       @game.guess_letter(@word, letter)
     end
-    result = @game.is_lost?()
-    assert_equal(false, result)
+    @game.is_lost?()
+    assert_equal(false, @game.is_lost())
   end
 
   def test_game_won__true()
@@ -59,8 +59,8 @@ class GameTest < MiniTest::Test
     letters_to_guess.each do |letter|
       @game.guess_letter(@word, letter)
     end
-    result = @game.is_won?()
-    assert_equal(true, result)
+    @game.is_won?()
+    assert_equal(true, @game.is_won())
   end
 
   def test_game_won__false()
@@ -68,8 +68,8 @@ class GameTest < MiniTest::Test
     letters_to_guess.each do |letter|
       @game.guess_letter(@word, letter)
     end
-    result = @game.is_won?()
-    assert_equal(false, result)
+    @game.is_won?()
+    assert_equal(false, @game.is_won())
   end
 
 end
