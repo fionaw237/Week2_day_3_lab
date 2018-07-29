@@ -15,6 +15,8 @@ class HiddenWord
       for idx in 0...@word.length()
         if guessed.include?(@word[idx])
           word_to_show += @word[idx]
+        elsif @word[idx] == " "
+          word_to_show += " "
         else
           word_to_show += "*"
         end
